@@ -7,7 +7,7 @@ use Symfony\Component\Dotenv\Dotenv;
 
 require_once __DIR__.'/vendor/autoload.php';
 
-require_once 'recipe/symfony4.php';
+require_once 'recipe/symfony.php';
 
 
 $dotenv = new Dotenv();
@@ -23,12 +23,12 @@ set('default_stage', 'staging');
 // Hosts
 host('production')
     ->hostname($_ENV['DEPLOYER_REPO_HOSTNAME'])
-    ->set('deploy_path', '/home/vagrant/sources/{{application}}/prod')
+    ->set('deploy_path', '/var/sources/{{application}}/prod')
     ->stage('production');
 
 host('recette')
     ->hostname($_ENV['DEPLOYER_REPO_HOSTNAME'])
-    ->set('deploy_path', '/home/vagrant/sources/{{application}}/recette')
+    ->set('deploy_path', '/var/sources/{{application}}/recette')
     ->stage('staging');
 
 // Nombre de déploiements à conserver avant de les supprimer.
