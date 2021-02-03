@@ -9,12 +9,17 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Notification\ContactNotification;
+use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
+use DateTime;
 
 /**
  * @Route("/contact")
  */
 class ContactController extends AbstractController
 {
+    
+
     /**
      * @Route("/", name="contact_index", methods={"GET"})
      */
@@ -28,18 +33,23 @@ class ContactController extends AbstractController
     /**
      * @Route("/new", name="contact_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, ContactNotification $notification): Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+        
+       
+            $contact->setDateEnvoi(new \DateTime());
+            $template = "mail/contact_email.html.twig";
+            $notification->notify($contact, $template);
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($contact);
             $entityManager->flush();
 
-            return $this->redirectToRoute('contact_index');
+            //return $this->redirectToRoute('contact_index');
         }
 
         return $this->render('contact/new.html.twig', [
@@ -48,6 +58,15 @@ class ContactController extends AbstractController
         ]);
     }
 
+     /**
+     * @Route("/showemail", name="contact_show_email", methods={"GET"})
+     */
+    public function showemail(ContactRepository $contactRepository): Response
+    {
+        return $this->render('mail/contact_email.html.twig', [
+            'contacts' => $contactRepository->findAll(),
+        ]);
+    }
     /**
      * @Route("/{id}", name="contact_show", methods={"GET"})
      */

@@ -43,6 +43,19 @@ class Contact
      */
     private $message;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Category::class, inversedBy="contacts")
+     * @ORM\JoinColumn(nullable=false)
+     */
+    private $category;
+
+    /**
+     * @ORM\Column(type="datetime")
+     */
+    private $date_envoi;
+
+    
+
     public function getId(): ?int
     {
         return $this->id;
@@ -107,4 +120,30 @@ class Contact
 
         return $this;
     }
+
+    public function getCategory(): ?Category
+    {
+        return $this->category;
+    }
+
+    public function setCategory(?Category $category): self
+    {
+        $this->category = $category;
+
+        return $this;
+    }
+
+    public function getDateEnvoi(): ?\DateTimeInterface
+    {
+        return $this->date_envoi;
+    }
+
+    public function setDateEnvoi(\DateTimeInterface $date_envoi): self
+    {
+        $this->date_envoi = $date_envoi;
+
+        return $this;
+    }
+
+   
 }
