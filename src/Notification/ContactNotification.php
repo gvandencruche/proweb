@@ -25,18 +25,22 @@ class ContactNotification {
 
             
             $email = (new TemplatedEmail())
-             ->from('hello@example.com')
+             ->from('no-reply@proweb-artois.fr')
                 ->to($Contact->getEmail())
                 //->cc('cc@example.com')
                 //->bcc('bcc@example.com')
                 //->replyTo('fabien@example.com')
                 ->priority(Email::PRIORITY_HIGH)
-                ->subject($Contact->getCategory())
-                ->text('Sending emails is fun again!')
+                ->subject("Demande ".$Contact->getCategory()." du ".date_format($Contact->getDateEnvoi(),'d/m/Y'))
+                ->context([
+                    'contact' => $Contact,
+                ])
                 ->embedFromPath('assets/images/logo.png', 'logo')
                 ->htmlTemplate($template);
+   
 
-        $this->mailer->send($email);
+            $a=$this->mailer->send($email);
+            
             return true;
         }
         catch(Exception $e){

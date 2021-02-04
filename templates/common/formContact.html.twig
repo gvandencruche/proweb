@@ -1,3 +1,10 @@
+<style>
+.labelcategory{
+    padding: 8px 0px;
+    font-size: 14px;
+line-height: 1.428571429;
+}
+</style>
 <article class="col-sm-9 maincontent">
     <header class="page-header">
         <h1 class="page-title">Me contacter /  demander un devis</h1>
@@ -8,7 +15,7 @@
     </p>
     <br>
         {{ form_start(form) }}
-            <div class="row">
+            <div class="row" style="padding-bottom:10px">
                 <div class="col-sm-4">
                     {{ form_row(form.firstname) }}
                 </div>
@@ -19,13 +26,17 @@
                     {{ form_row(form.email) }}
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="padding-bottom:10px">
                 <div class="col-sm-4">
                     {{ form_row(form.phone) }}
                 </div>
-                <div class="col-sm-4">
-                Votre demande concerne 
-                    {{ form_row(form.category) }}
+                <div class="col-sm-8">
+                    <div class="col-sm-4 labelcategory">
+                       Votre demande concerne :
+                    </div>
+                    <div class="col-sm-4">
+                        {{ form_row(form.category) }}
+                    </div>
                 </div>
                 
             </div>

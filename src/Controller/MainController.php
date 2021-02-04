@@ -14,7 +14,7 @@ class MainController extends AbstractController
     public function index(): Response
     {
         if($this->getParameter('app_maintenance')){
-            return $this->render('main/maintenance.html.twig');
+            return $this->redirectToRoute('contact_new');
         }
         return $this->render('main/index.html.twig', [
             'controller_name' => 'MainController',

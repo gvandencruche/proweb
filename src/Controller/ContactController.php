@@ -13,15 +13,13 @@ use App\Notification\ContactNotification;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use DateTime;
 
-/**
- * @Route("/contact")
- */
+
 class ContactController extends AbstractController
 {
     
 
     /**
-     * @Route("/", name="contact_index", methods={"GET"})
+     * @Route("/index", name="contact_index", methods={"GET"})
      */
     public function index(ContactRepository $contactRepository): Response
     {
@@ -31,7 +29,7 @@ class ContactController extends AbstractController
     }
 
     /**
-     * @Route("/new", name="contact_new", methods={"GET","POST"})
+     * @Route("/prise-de-contact", name="contact_new", methods={"GET","POST"})
      */
     public function new(Request $request, ContactNotification $notification): Response
     {
@@ -63,8 +61,10 @@ class ContactController extends AbstractController
      */
     public function showemail(ContactRepository $contactRepository): Response
     {
+        $contact=$contactRepository->findLast();
+       
         return $this->render('mail/contact_email.html.twig', [
-            'contacts' => $contactRepository->findAll(),
+            'contact' => $contact[0],
         ]);
     }
     /**
