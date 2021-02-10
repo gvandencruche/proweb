@@ -29,7 +29,7 @@ class RegistrationController extends AbstractController
     }
 
     /**
-     * @Route("/register", name="app_register")
+     * @Route("/inscription", name="app_register")
      */
     public function register(Request $request, UserPasswordEncoderInterface $passwordEncoder, ParametreRepository $parametreRepository): Response
     {
@@ -56,7 +56,6 @@ class RegistrationController extends AbstractController
             if ($parametre->getLogo()->getName()) {
                 $logo = "uploads/images/".$parametre->getLogo()->getName();
             }
-
 
             // generate a signed url and email it to the user
             $this->emailVerifier->sendEmailConfirmation('app_verify_email', $user,

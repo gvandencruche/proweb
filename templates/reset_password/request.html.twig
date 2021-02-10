@@ -1,22 +1,36 @@
-{% extends 'base.html.twig' %}
-
-{% block title %}Reset your password{% endblock %}
+{% extends 'base_contact.html.twig' %}
+{% block title %}Proweb Artois : {% trans %}Reset your password{% endtrans %}{% endblock %}
+{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block googleMap %}{% endblock %}
+{% block sidebar %}{% endblock %}
 
 {% block body %}
-    {% for flashError in app.flashes('reset_password_error') %}
-        <div class="alert alert-danger" role="alert">{{ flashError }}</div>
-    {% endfor %}
-    <h1>Reset your password</h1>
-
-    {{ form_start(requestForm) }}
-        {{ form_row(requestForm.email) }}
-        <div>
-            <small>
-                Enter your email address and we we will send you a
-                link to reset your password.
-            </small>
+ <article class="col-xs-12 maincontent">
+    <header class="page-header">
+        <h1 class="page-title">{% trans %}Reset your password{% endtrans %}</h1>
+    </header>
+   <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3 class="thin text-center">{% trans %}Enter your email address and we we will send you a link to reset your password.{% endtrans %}</h3>
+                <hr>
+                {% for flashError in app.flashes('verify_email_error') %}
+                    <div class="alert alert-danger" role="alert">{{ flashError }}</div>
+                {% endfor %}
+                {{ form_start(requestForm) }}
+                {{ form_row(requestForm.email) }}
+               
+                <hr>
+                <div class="row">
+                    <div class="col-lg-12 text-right">
+                       <button class="btn btn-primary">{% trans %}Send password reset email{% endtrans %}</button>
+                    </div>
+                </div>
+                
+                {{ form_end(requestForm) }}
+            </div>
         </div>
-
-        <button class="btn btn-primary">Send password reset email</button>
-    {{ form_end(requestForm) }}
+	</div>
+</article>
 {% endblock %}
