@@ -228,6 +228,10 @@
       <trans-unit id="56" resname="Your request has been registered">
         <source>Your request has been registered</source>
         <target>Votre demande a été enregistrée</target>
+      </trans-unit>   
+      <trans-unit id="57" resname="Follow me">
+        <source>Follow me</source>
+        <target>Suivez-moi</target>
       </trans-unit>    
     </body>
   </file>
