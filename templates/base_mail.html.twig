@@ -1,0 +1,23 @@
+<body>
+{% apply inline_css(source('@styles/bootstrap-theme.css'), source('@styles/font-awesome.min.css'), source('@styles/main.css')) %}	
+<div class="navbar navbar-inverse navbar-fixed-top headroom" style="min-height: 70px" >
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="{{ absolute_url(path('app_home'))}}" title="Accéder au site Proweb Artois">
+				<img width="100" src="cid:logo" alt="Proweb Artois">
+				</a>
+			</div>
+			
+		</div>
+	</div> 
+	<div class="container">
+		<div class="row bd-solid">
+			{% block body %}{% endblock %}
+		</div>
+	</div>
+	
+	{% block footer %}{% endblock %}
+	
+{% endapply %}
+</body>
+</html>

@@ -1,20 +1,21 @@
 <?php
 
-namespace App\Controller;
+namespace App\Controller\Admin;
 
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use App\Repository\ParametreRepository;
 
 class AdminController extends AbstractController
 {
     /**
      * @Route("/administration", name="admin_home")
      */
-    public function index(): Response
+    public function index(ParametreRepository $parametreRepository): Response
     {
         return $this->render('admin/index.html.twig', [
-            'controller_name' => 'AdminController',
+            'parametre' => $parametreRepository->findOneBy(array('titre' => $_SERVER['APP_SITE'])),
         ]);
     }
 }

@@ -11,25 +11,42 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\Form\Extension\Core\Type\EmailType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\RepeatedType;
 
 class RegistrationFormType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('email')
-            ->add('agreeTerms', CheckboxType::class, [
-                'mapped' => false,
-                'constraints' => [
-                    new IsTrue([
-                        'message' => 'You should agree to our terms.',
-                    ]),
-                ],
+            ->add('email', EmailType::class , [
+                
+                'label' => false,
+                'row_attr' => ['class'=>'form-field'],
+                'attr' => ['placeholder' => 'Votre email','class'=>'form-control']
             ])
-            ->add('plainPassword', PasswordType::class, [
+            ->add('lastname', TextType::class, [
+                'label' => false,
+                'row_attr' => ['class'=>'form-field'],
+                'attr' => ['placeholder' => 'Votre nom', 'class'=>'form-control']
+            ])
+            ->add('firstname', TextType::class, [
+                'label' => false,
+                'row_attr' => ['class'=>'form-field'],
+                'attr' => ['placeholder' => 'Votre prénom','class'=>'form-control']
+            ])
+            ->add('password', RepeatedType::class, [
                 // instead of being set onto the object directly,
                 // this is read and encoded in the controller
-                'mapped' => false,
+                'type' => PasswordType::class,
+                'invalid_message' => 'The password fields must match.',
+                'options' => ['attr' => ['class' => 'form-control']],
+                'required' => true,
+                'invalid_message_parameters' => [ 'attr' => ['class' => 'invalid']],
+                'first_options'  => ['label' => false, 'attr' => ['class' => 'form-control first']],
+                'second_options'  => ['label' => false, 'attr' => ['class' => 'form-control second']],
                 'constraints' => [
                     new NotBlank([
                         'message' => 'Please enter a password',
@@ -43,6 +60,8 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
         ;
+
+        
     }
 
     public function configureOptions(OptionsResolver $resolver)

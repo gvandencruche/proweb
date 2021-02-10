@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xliff xmlns="urn:oasis:names:tc:xliff:document:1.2" version="1.2">
+  <file source-language="fr" target-language="fr" datatype="plaintext" original="file.ext">
+    <header>
+      <tool tool-id="symfony" tool-name="Symfony"/>
+    </header>
+    <body>
+      <trans-unit id="1" resname="Enter your email to log in or create an account.">
+        <source>Enter your email to log in or create an account.</source>
+        <target>Entrez votre email pour vous connecter ou créer un compte.</target>
+      </trans-unit>
+      <trans-unit id="2" resname="Login / Register">
+        <source>Login / Register</source>
+        <target>Connexion / Inscription</target>
+      </trans-unit>
+      <trans-unit id="3" resname="Email">
+        <source>Email</source>
+        <target>Votre email</target>
+      </trans-unit>
+      <trans-unit id="4" resname="Password">
+        <source>Password</source>
+        <target>Votre mot de passe</target>
+      </trans-unit>
+      <trans-unit id="5" resname="Log in">
+        <source>Log in</source>
+        <target>Connexion</target>
+      </trans-unit>
+      <trans-unit id="6" resname="Reset your password">
+        <source>Reset your password</source>
+        <target>Modifiez votre mot de passe</target>
+      </trans-unit>
+      <trans-unit id="7" resname="Enter your email address and we we will send you a link to reset your password">
+        <source>Enter your email address and we we will send you a link to reset your password</source>
+        <target>Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe</target>
+      </trans-unit>
+      <trans-unit id="8" resname="Send password reset email">
+        <source>Send password reset email</source>
+        <target>Envoyer</target>
+      </trans-unit>
+      <trans-unit id="9" resname="I forgot my password">
+        <source>I forgot my password</source>
+        <target>j'ai oublié mon mot de passe</target>
+      </trans-unit>
+      <trans-unit id="10" resname="An email has been sent that contains a link that you can click to reset your password">
+        <source>An email has been sent that contains a link that you can click to reset your password</source>
+        <target>Un e-mail a été envoyé contenant un lien sur lequel vous pouvez cliquer pour réinitialiser votre mot de passe.</target>
+      </trans-unit>
+      <trans-unit id="11" resname="If you do not receive an email, please check your spam folder or click the retry link">
+        <source>If you do not receive an email, please check your spam folder or click the retry link</source>
+        <target>Si vous ne recevez pas d'e-mail, veuillez vérifier votre dossier spam ou cliquez sur le lien réessayer</target>
+      </trans-unit>
+      <trans-unit id="12" resname="try again">
+        <source>try again</source>
+        <target>Réessayer</target>
+      </trans-unit>
+      <trans-unit id="13" resname="This link will expire in">
+        <source>This link will expire in</source>
+        <target>Ce lien expire dans</target>
+      </trans-unit>
+      <trans-unit id="14" resname="hour(s)">
+        <source>hour(s)</source>
+        <target>heure(s).</target>
+      </trans-unit>
+      <trans-unit id="15" resname="Close">
+        <source>Close</source>
+        <target>Fermer</target>
+      </trans-unit>
+      <trans-unit id="16" resname="To reset your password, please visit the following link">
+        <source>To reset your password, please visit the following link</source>
+        <target>Pour réinitialiser votre mot de passe, veuillez cliquer sur le lien suivant</target>
+      </trans-unit>
+      <trans-unit id="17" resname="This link will expire in">
+        <source>This link will expire in</source>
+        <target>Ce lien expirera dans</target>
+      </trans-unit>
+      <trans-unit id="18" resname="Cheers!">
+        <source>Cheers!</source>
+        <target>Cordialement</target>
+      </trans-unit>
+      <trans-unit id="19" resname="Your password reset request">
+        <source>Your password reset request</source>
+        <target>Votre demande de réinitialisation de mot de passe</target>
+      </trans-unit>
+       <trans-unit id="20" resname="Reset password">
+        <source>Reset password</source>
+        <target>Réinitialiser</target>
+      </trans-unit>
+       <trans-unit id="21" resname="New password">
+        <source>New password</source>
+        <target>Nouveau mot de passe</target>
+      </trans-unit>
+      <trans-unit id="22" resname="Repeat password">
+        <source>Repeat password</source>
+        <target>Répéter le mot de passe</target>
+      </trans-unit>
+       <trans-unit id="23" resname="The password fields must match.">
+        <source>The password fields must match.</source>
+        <target>Les champs du mot de passe doivent correspondre.</target>
+      </trans-unit>
+      <trans-unit id="24" resname="TYour password should be at least {{ limit }} characters">
+        <source>Your password should be at least {{ limit }} characters</source>
+        <target>Votre mot de passe doit comporter au moins {{limit}} caractères</target>
+      </trans-unit>
+      <trans-unit id="25" resname="Please enter a password">
+        <source>Please enter a password</source>
+        <target>Veuillez entrer un mot de passe</target>
+      </trans-unit>
+      <trans-unit id="26" resname="Invalid credentials.">
+        <source>Invalid credentials.</source>
+        <target>Identifiants invalides.</target>
+      </trans-unit>
+      <trans-unit id="27" resname="edit">
+        <source>edit</source>
+        <target>Editer</target>
+      </trans-unit>
+      <trans-unit id="28" resname="Delete">
+        <source>Delete</source>
+        <target>Supprimer</target>
+      </trans-unit>
+      <trans-unit id="29" resname="Create new">
+        <source>Create new</source>
+        <target>Créer</target>
+      </trans-unit>
+      <trans-unit id="30" resname="back to list">
+        <source>back to list</source>
+        <target>Retour liste</target>
+      </trans-unit>
+      <trans-unit id="31" resname="Save">
+        <source>Save</source>
+        <target>Valider</target>
+      </trans-unit>
+      <trans-unit id="32" resname="no records found">
+        <source>no records found</source>
+        <target>Aucun enregistrement trouvé</target>
+      </trans-unit>
+      <trans-unit id="33" resname="To create your account, please click on the link :">
+        <source>To create your account, please click on the link :</source>
+        <target>Pour créer votre compte, veuillez cliquer sur le lien :</target>
+      </trans-unit>
+      <trans-unit id="34" resname="Register">
+        <source>Register</source>
+        <target>Inscription</target>
+      </trans-unit>
+      <trans-unit id="35" resname="Please sign in">
+        <source>Please sign in</source>
+        <target>Veuillez vous connecter </target>
+      </trans-unit>
+      <trans-unit id="36" resname="Forgot password ?">
+        <source>Forgot password ?</source>
+        <target>Mot de passe oublié ?</target>
+      </trans-unit>
+      <trans-unit id="37" resname="Login">
+        <source>Login</source>
+        <target>Connexion</target>
+      </trans-unit>
+      <trans-unit id="38" resname="Registration">
+        <source>Registration</source>
+        <target>Enregistrement</target>
+      </trans-unit>
+      <trans-unit id="39" resname="Repeat Password">
+        <source>Repeat Password</source>
+        <target>Confirmer votre mot de passe</target>
+      </trans-unit>
+      <trans-unit id="40" resname="Register a new account">
+        <source>Register a new account</source>
+        <target>Enregistrer un nouveau compte</target>
+      </trans-unit>
+      <trans-unit id="41" resname="Sign up to create a new account">
+        <source>Sign up to create a new account</source>
+        <target>Inscrivez-vous pour créer un nouveau compte</target>
+      </trans-unit>
+      <trans-unit id="42" resname="Sign in">
+        <source>Sign in</source>
+        <target>Se connecter</target>
+      </trans-unit>
+      <trans-unit id="43" resname="Sign up">
+        <source>Sign up</source>
+        <target>Inscription</target>
+      </trans-unit>      
+      <trans-unit id="44" resname="Sign out">
+        <source>Sign out</source>
+        <target>Se déconnecter</target>
+      </trans-unit>            
+      <trans-unit id="45" resname="Contact">
+        <source>Contact</source>
+        <target>Prise de contact</target>
+      </trans-unit>            
+      <trans-unit id="46" resname="Site parameters">
+        <source>Site parameters</source>
+        <target>Paramètres du site</target>
+      </trans-unit>    
+      <trans-unit id="47" resname="Create new site parameter">
+        <source>Create new site parameter</source>
+        <target>Créer un nouveau paramètre</target>
+      </trans-unit>        
+      <trans-unit id="48" resname="Edit site parameter">
+        <source>Edit site parameter</source>
+        <target>Editer les paramètres du site</target>
+      </trans-unit>     
+      <trans-unit id="49" resname="back to list">
+        <source>back to list</source>
+        <target>Retour à la liste</target>
+      </trans-unit>    
+      <trans-unit id="50" resname="Admin daschboard">
+        <source>Admin daschboard</source>
+        <target>Tableau de bord d'administration</target>
+      </trans-unit>     
+      <trans-unit id="51" resname="Create new Medias">
+        <source>Create new Medias</source>
+        <target>Créer un média</target>
+      </trans-unit>     
+      <trans-unit id="52" resname="Media name">
+        <source>Media name</source>
+        <target>Nom du média</target>
+      </trans-unit>    
+      <trans-unit id="53" resname="Confirmation of the validity of email">
+        <source>Confirmation of the validity of email</source>
+        <target>Confirmation de la validité de l'email</target>
+      </trans-unit>    
+      <trans-unit id="54" resname="Home">
+        <source>Home</source>
+        <target>Accueil du site</target>
+      </trans-unit>    
+      <trans-unit id="55" resname="Confirmation of the contact request">
+        <source>Confirmation of the contact request</source>
+        <target>Confirmation de la demande de contact</target>
+      </trans-unit> 
+      <trans-unit id="56" resname="Your request has been registered">
+        <source>Your request has been registered</source>
+        <target>Votre demande a été enregistrée</target>
+      </trans-unit>   
+      <trans-unit id="57" resname="Follow me">
+        <source>Follow me</source>
+        <target>Suivez-moi</target>
+      </trans-unit>    
+      <trans-unit id="58" resname="Enter your email address and we we will send you a link to reset your password.">
+        <source>Enter your email address and we we will send you a link to reset your password.</source>
+        <target>Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.</target>
+      </trans-unit>
+      <trans-unit id="59" resname="Password Reset Email Sent">
+        <source>Password Reset Email Sent</source>
+        <target>Email de réinitialisation du mot de passe envoyé</target>
+      </trans-unit>
+      <trans-unit id="60" resname="An email has been sent that contains a link that you can click to reset your password.">
+        <source>An email has been sent that contains a link that you can click to reset your password.</source>
+        <target>Un e-mail a été envoyé contenant un lien sur lequel vous pouvez cliquer pour réinitialiser votre mot de passe.</target>
+      </trans-unit>
+      <trans-unit id="61" resname="If you don't receive an email please check your spam folder or">
+        <source>If you don't receive an email please check your spam folder or</source>
+        <target>Si vous ne recevez pas d'e-mail, veuillez vérifier votre dossier spam ou</target>
+      </trans-unit>
+       <trans-unit id="62" resname="To reset your password, please visit the following link">
+        <source>To reset your password, please visit the following link</source>
+        <target>Pour réinitialiser votre mot de passe, veuillez visiter le lien suivant</target>
+      </trans-unit>
+      
+    </body>
+  </file>
+</xliff>

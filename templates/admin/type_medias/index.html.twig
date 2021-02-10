@@ -1,0 +1,41 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeMedias index{% endblock %}
+
+{% block body %}
+    <h1>TypeMedias index</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Title</th>
+                <th>Created_at</th>
+                <th>Update_at</th>
+
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for type_media in type_medias %}
+            <tr>
+                <td>{{ type_media.id }}</td>
+                <td>{{ type_media.title }}</td>
+                <td>{{ type_media.createdAt ? type_media.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ type_media.updateAt ? type_media.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+
+                <td>
+                    <a href="{{ path('type_medias_show', {'id': type_media.id}) }}">show</a>
+                    <a href="{{ path('type_medias_edit', {'id': type_media.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_medias_new') }}">Create new</a>
+{% endblock %}

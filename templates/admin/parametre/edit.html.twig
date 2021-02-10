@@ -1,0 +1,21 @@
+{% extends 'base_contact.html.twig' %}
+{% block title %}Proweb Artois : {% trans %}Site parameters{% endtrans %}{% endblock %}
+{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block googleMap %}{% endblock %}
+{% block sidebar %}{% endblock %}
+
+{% block body %}
+<article class="col-xs-12 maincontent">
+
+    <h1>{% trans %}Edit Parametre{% endtrans %}</h1>
+
+    {{ include('admin/parametre/_form.html.twig', {'button_label': 'Update'}) }}
+    Logo <img src="{{ asset('/uploads/images/' ~ parametre.logo) }}" alt="{{ parametre.logo }}" width="150" >
+    <a href="{{ path('parametre_index') }}">{% trans %}back to list{% endtrans %}</a>
+
+    {{ include('admin/parametre/_delete_form.html.twig') }}
+
+    <a href="{{ path('parametre_index') }}">{% trans %}back to list{% endtrans %}</a>
+</article>
+{% endblock %}

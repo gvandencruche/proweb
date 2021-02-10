@@ -1,0 +1,18 @@
+{% extends 'base_contact.html.twig' %}
+{% block title %}Proweb Artois : {% trans %}References{% endtrans %}{% endblock %}
+{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block googleMap %}{% endblock %}
+{% block sidebar %}{% endblock %}
+
+{% block body %}
+<article class="col-xs-12 maincontent">
+
+    <h1>{% trans %}Edit Reference{% endtrans %}</h1>
+
+    {{ include('admin/reference/_form.html.twig', {'button_label': 'Update'}) }}
+    Logo <img src="{{ asset('/uploads/images/' ~ reference.logo) }}" alt="{{ reference.logo }}" width="150" >
+    <a href="{{ path('reference_index') }}">{% trans %}back to list{% endtrans %}</a>
+
+    {{ include('admin/reference/_delete_form.html.twig') }}
+{% endblock %}

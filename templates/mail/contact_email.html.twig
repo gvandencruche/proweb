@@ -1,0 +1,27 @@
+{% extends 'base_mail.html.twig' %}
+
+
+{% block body %}
+<div style="padding: 20px">
+<p>Bonjour {{ contact.firstname | upper }} {{ contact.lastname | upper }}</p>
+
+<p>Nous vous confirmons la réception de votre message et nous vous en remercions.</p>
+<p>Votre demande sera traitée dans un délai de 3 jours</p>
+<p>Bien cordialement,</p>
+<p>Guy Vandencruche<br>
+Gérant Proweb Artois</p>
+
+<br>
+ <hr>
+
+<p>Rappel de votre message : </p>
+
+<p>{{ contact.message | raw}}</p>
+</div>
+
+{% endblock %}
+{% block footer %}
+<footer style="padding:20px">
+	<div style="text-align:center">PROWEB ARTOIS SARL - RCS. ARRAS 530 608 835 N° de Gestion 2011 B 273</div>
+</footer>
+{% endblock %}

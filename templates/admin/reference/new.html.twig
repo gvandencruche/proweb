@@ -1,0 +1,17 @@
+{% extends 'base_contact.html.twig' %}
+{% block title %}Proweb Artois : {% trans %}New Reference{% endtrans %}{% endblock %}
+{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block googleMap %}{% endblock %}
+{% block sidebar %}{% endblock %}
+
+{% block body %}
+ <article class="col-xs-12 maincontent">
+
+    <h1>{% trans %}New Reference{% endtrans %}</h1>
+
+
+    {{ include('admin/reference/_form.html.twig') }}
+
+    <a href="{{ path('reference_index') }}"> {% trans %}back to list{% endtrans %}</a>
+{% endblock %}

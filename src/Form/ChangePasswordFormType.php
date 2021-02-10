@@ -15,9 +15,13 @@ class ChangePasswordFormType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
+            
             ->add('plainPassword', RepeatedType::class, [
                 'type' => PasswordType::class,
+                'options' => ['attr' => ['class' => 'form-control']],
                 'first_options' => [
+                 
+                    'attr' => ['class' => 'form-control first'],
                     'constraints' => [
                         new NotBlank([
                             'message' => 'Please enter a password',
@@ -33,6 +37,8 @@ class ChangePasswordFormType extends AbstractType
                 ],
                 'second_options' => [
                     'label' => 'Repeat Password',
+                  
+                    'attr' => ['class' => 'form-control first'],
                 ],
                 'invalid_message' => 'The password fields must match.',
                 // Instead of being set onto the object directly,
