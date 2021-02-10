@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\ContactRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Gedmo\Mapping\Annotation as Gedmo;
 
 
 /**
@@ -50,9 +51,10 @@ class Contact
     private $category;
 
     /**
+     * @Gedmo\Timestampable(on="create")
      * @ORM\Column(type="datetime")
      */
-    private $date_envoi;
+    private $created_at;
 
     
 
@@ -133,17 +135,12 @@ class Contact
         return $this;
     }
 
-    public function getDateEnvoi(): ?\DateTimeInterface
+    public function getCreatedAt(): ?\DateTimeInterface
     {
-        return $this->date_envoi;
+        return $this->created_at;
     }
 
-    public function setDateEnvoi(\DateTimeInterface $date_envoi): self
-    {
-        $this->date_envoi = $date_envoi;
-
-        return $this;
-    }
+    
 
    
 }

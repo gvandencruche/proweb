@@ -10,6 +10,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use App\Notification\ContactNotification;
+use App\Repository\ParametreRepository;
 use SymfonyCasts\Bundle\VerifyEmail\Exception\VerifyEmailExceptionInterface;
 use DateTime;
 
@@ -21,17 +22,18 @@ class ContactController extends AbstractController
     /**
      * @Route("/index", name="contact_index", methods={"GET"})
      */
-    public function index(ContactRepository $contactRepository): Response
+    public function index(ContactRepository $contactRepository, ParametreRepository $parametreRepository): Response
     {
         return $this->render('contact/index.html.twig', [
             'contacts' => $contactRepository->findAll(),
+            'parametre' => $parametreRepository->findSite($_SERVER['APP_SITE']),
         ]);
     }
 
     /**
      * @Route("/prise-de-contact", name="contact_new", methods={"GET","POST"})
      */
-    public function new(Request $request, ContactNotification $notification): Response
+    public function new(Request $request, ContactNotification $notification, ParametreRepository $parametreRepository): Response
     {
         $contact = new Contact();
         $form = $this->createForm(ContactType::class, $contact);
@@ -39,19 +41,19 @@ class ContactController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
         
-       
-            $contact->setDateEnvoi(new \DateTime());
             $template = "mail/contact_email.html.twig";
-            $notification->notify($contact, $template);
+            
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($contact);
             $entityManager->flush();
+            $notification->notify($contact, $template);
 
             //return $this->redirectToRoute('contact_index');
         }
 
         return $this->render('contact/new.html.twig', [
             'contact' => $contact,
+            'parametre' => $parametreRepository->findSite($_SERVER['APP_SITE']),
             'form' => $form->createView(),
         ]);
     }
@@ -67,16 +69,7 @@ class ContactController extends AbstractController
             'contact' => $contact[0],
         ]);
     }
-    /**
-     * @Route("/{id}", name="contact_show", methods={"GET"})
-     */
-    public function show(Contact $contact): Response
-    {
-        return $this->render('contact/show.html.twig', [
-            'contact' => $contact,
-        ]);
-    }
-
+    
     /**
      * @Route("/{id}/edit", name="contact_edit", methods={"GET","POST"})
      */

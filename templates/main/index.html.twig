@@ -1,10 +1,46 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Accueil{% endblock %}
+{% block title %}Proweb Artois : {% trans %}Home{% endtrans %}{% endblock %}
+{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block googleMap %}{% endblock %}
+{% block sidebar %}{% endblock %}
 
 {% block body %}
-{% for message in app.flashes('success') %}
-        <div class="alert alert-danger" role="alert">{{ message }}</div>
-{% endfor %}
+<!-- Header -->
+	<header id="head">
+		<div class="container">
+			<div class="row">
+				<h1 class="lead">{{parametre.header | raw}}</h1>
+				{{parametre.accroche | raw}}
+			</div>
+		</div>
+	</header>
+	<!-- /Header -->
+
+	<!-- Intro -->
+	<div class="container text-center">
+		<br> <br>
+		<h2 class="thin">{{parametre.introTitre }}</h2>
+		
+		<p class="text-muted">
+			{{parametre.introText | raw}}
+		</p>
+	</div>
+	<div class="container">
+
+		<div class="row">
+		{% for reference in references %}
+			<div class="col-xs-1">
+            	<a href="{{reference.url}}" target="_blank" ">
+                <img  src="{{asset('uploads/images/'~ reference.logo.name)}}" alt="Image 1" />
+            	</a>
+				<h5 class="thin text-center">{{reference.titre}}</h5>
+        	</div>
+		{% endfor %}
+		</div>
+		<br>
+	</div>
+	<!-- /Intro-->
 
 {% endblock %}

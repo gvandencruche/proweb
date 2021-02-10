@@ -1,7 +1,24 @@
-{% extends 'base-admin.html.twig' %}
+{% extends 'base_contact.html.twig' %}
 
-{% block title %}Administration{% endblock %}
+{% block title %}Proweb Artois : {% trans %}Dashboard{% endtrans %}{% endblock %}
+{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block googleMap %}{% endblock %}
+{% block sidebar %}{% endblock %}
 
 {% block body %}
+<article class="col-xs-12 maincontent">
 
+    <h1>{% trans %}Admin dashboard{% endtrans %}</h1>
+
+    <ul>
+        <li><a href="{{ path('parametre_index') }}">{% trans %}Site parameters{% endtrans %}</a></li>
+        <li><a href="{{ path('medias_index') }}">{% trans %}Medias{% endtrans %}</a></li>
+        <li><a href="{{ path('reference_index') }}">{% trans %}References{% endtrans %}</a></li>
+    </ul>
+    
+    
+
+    
+</article>
 {% endblock %}

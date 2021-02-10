@@ -10,6 +10,10 @@
 	<link rel="shortcut icon" href="assets/images/gt_favicon.png">
 	
 	<link rel="stylesheet" media="screen" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+	
+	<!-- <link rel="stylesheet" media="screen" href="https://getbootstrap.com/docs/4.0/dist/css/bootstrap.min.css"> -->
+	
+	
 	<link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
 	<link rel="stylesheet" href="{{ asset('assets/css/font-awesome.min.css') }}">
 
@@ -27,7 +31,7 @@
 
 <body>
 	<!-- Fixed navbar -->
-	{% block navbar %}{% endblock %}
+	{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
 	<!-- /.navbar -->
 
 	<header id="head" class="secondary"></header>
@@ -58,7 +62,7 @@
 	</section>
 
 	<!-- footer -->
-	{% block footer %}{% endblock %}
+	{% block footer %}{% include('common/footer.html.twig') %}{% endblock %}
 	<!-- ./footer -->		
 
 

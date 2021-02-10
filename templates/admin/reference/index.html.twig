@@ -1,0 +1,47 @@
+{% extends 'base_contact.html.twig' %}
+{% block title %}Proweb Artois : {% trans %}References{% endtrans %}{% endblock %}
+{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block googleMap %}{% endblock %}
+{% block sidebar %}{% endblock %}
+
+{% block body %}
+ <article class="col-xs-12 maincontent">
+
+    <h1>{% trans %}References{% endtrans %}</h1>
+
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Text</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for reference in references %}
+            <tr>
+                <td>{{ reference.id }}</td>
+                <td>{{ reference.titre }}</td>
+                <td>{{ reference.text }}</td>
+                <td>
+                    <a href="{{ path('reference_show', {'id': reference.id}) }}">show</a>
+                    <a href="{{ path('reference_edit', {'id': reference.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="4">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('reference_new') }}">{% trans %}Create new{% endtrans %}</a>
+    <a href="{{ path('admin_home') }}">{% trans %}Admin dashboard{% endtrans %}</a>
+
+</article>    
+{% endblock %}

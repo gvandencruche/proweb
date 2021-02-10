@@ -31,7 +31,7 @@ class ContactNotification {
                 //->bcc('bcc@example.com')
                 //->replyTo('fabien@example.com')
                 ->priority(Email::PRIORITY_HIGH)
-                ->subject("Demande ".$Contact->getCategory()." du ".date_format($Contact->getDateEnvoi(),'d/m/Y'))
+                ->subject("Demande ".$Contact->getCategory()." du ".date_format($Contact->getCreatedAt(),'d/m/Y'))
                 ->context([
                     'contact' => $Contact,
                 ])

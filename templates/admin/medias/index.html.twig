@@ -1,0 +1,48 @@
+{% extends 'base_contact.html.twig' %}
+{% block title %}Proweb Artois : {% trans %}Medias{% endtrans %}{% endblock %}
+{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block googleMap %}{% endblock %}
+{% block sidebar %}{% endblock %}
+
+{% block body %}
+ <article class="col-xs-12 maincontent">
+
+    <h1>{% trans %}Medias{% endtrans %}</h1>
+
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Created_at</th>
+                <th>Update_at</th>
+                <th>Active</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for media in medias %}
+            <tr>
+                <td>{{ media.id }}</td>
+                <td>{{ media.name }}</td>
+                <td>{{ media.createdAt ? media.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ media.updateAt ? media.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+                <td>{{ media.active ? 'Yes' : 'No' }}</td>
+                <td>
+                    <a href="{{ path('medias_show', {'id': media.id}) }}">show</a>
+                    <a href="{{ path('medias_edit', {'id': media.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('medias_new') }}">Create new</a>
+</article>        
+{% endblock %}
