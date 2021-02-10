@@ -27,17 +27,20 @@
 			{{parametre.introText | raw}}
 		</p>
 	</div>
-	<div class="container">
-
-		<div class="row">
+	<br>
+	<div class="container" >
+		<div class="row a">
+		
 		{% for reference in references %}
-			<div class="col-xs-1">
-            	<a href="{{reference.url}}" target="_blank" ">
-                <img  src="{{asset('uploads/images/'~ reference.logo.name)}}" alt="Image 1" />
+			<div class="border mx-auto col-lg-1 col-md-1 col-sm-1">
+            	<a href="{{reference.url}}" target="_blank" >
+                <img class="img-responsive center-block" width="150px" src="{{asset('uploads/images/'~ reference.logo.name)}}" alt="Image 1" />
             	</a>
 				<h5 class="thin text-center">{{reference.titre}}</h5>
+				<br>
         	</div>
 		{% endfor %}
+		
 		</div>
 		<br>
 	</div>

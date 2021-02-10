@@ -217,6 +217,18 @@
         <source>Confirmation of the validity of email</source>
         <target>Confirmation de la validité de l'email</target>
       </trans-unit>    
+      <trans-unit id="54" resname="Home">
+        <source>Home</source>
+        <target>Accueil du site</target>
+      </trans-unit>    
+      <trans-unit id="55" resname="Confirmation of the contact request">
+        <source>Confirmation of the contact request</source>
+        <target>Confirmation de la demande de contact</target>
+      </trans-unit> 
+      <trans-unit id="56" resname="Your request has been registered">
+        <source>Your request has been registered</source>
+        <target>Votre demande a été enregistrée</target>
+      </trans-unit>    
     </body>
   </file>
 </xliff>

@@ -48,7 +48,9 @@ class ContactController extends AbstractController
             $entityManager->flush();
             $notification->notify($contact, $template);
 
-            //return $this->redirectToRoute('contact_index');
+            return $this->render('contact/okenvoimail.html.twig', [
+                'parametre' => $parametreRepository->findSite($_SERVER['APP_SITE']),
+            ]);
         }
 
         return $this->render('contact/new.html.twig', [
