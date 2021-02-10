@@ -55,9 +55,13 @@
 					<div class="col-md-6 widget">
 						<div class="widget-body">
 							<p class="simplenav">
-								<a href="{{ path('app_home') }}">{% trans %}Home{% endtrans %}</a> | 
-								<a href="{{ path('app_home') }}">{% trans %}About{% endtrans %}</a> |
+								<a href="{{path('app_home')}}">{% trans %}Home{% endtrans %}</a> |
+								{% if is_granted('ROLE_ADMIN') %}
+								<a href="{{path('admin_home')}}">{% trans %}Admin dashboard{% endtrans %}</a> |
+								{% else %}
+								<a href="{{path('app_home')}}">{% trans %}About{% endtrans %}</a> |
 								<a href="{{path('contact_new')}}">{% trans %}Contact{% endtrans %}</a> |
+								{% endif %}
 								{% if is_granted('ROLE_USER') %}
          		   				<a class="navbar-link" href="{{path('app_logout')}}">{% trans %}Sign out{% endtrans %}</a>
 								{% else %}
