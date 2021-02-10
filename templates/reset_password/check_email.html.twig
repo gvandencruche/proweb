@@ -1,11 +1,25 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_contact.html.twig' %}
+{% block title %}Proweb Artois : {% trans %}Password Reset Email Sent{% endtrans %}{% endblock %}
+{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block googleMap %}{% endblock %}
+{% block sidebar %}{% endblock %}
 
-{% block title %}Password Reset Email Sent{% endblock %}
 
 {% block body %}
-    <p>
-        An email has been sent that contains a link that you can click to reset your password.
-        This link will expire in {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}.
-    </p>
-    <p>If you don't receive an email please check your spam folder or <a href="{{ path('app_forgot_password_request') }}">try again</a>.</p>
+ <article class="col-xs-12 maincontent">
+    <header class="page-header">
+        <h1 class="page-title">{% trans %}Password Reset Email Sent{% endtrans %}</h1>
+    </header>
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <p>{% trans %}An email has been sent that contains a link that you can click to reset your password.{% endtrans %}</p>
+                <p>{% trans %}This link will expire in {% endtrans %} {{ resetToken.expirationMessageKey|trans(resetToken.expirationMessageData, 'ResetPasswordBundle') }}</p>
+                <p>{% trans %}If you don't receive an email please check your spam folder or {% endtrans %} <a href="{{ path('app_forgot_password_request') }}">{% trans %}try again{% endtrans %}</a>.</p>
+                <p><a href="{{path('app_home')}}">{% trans %}Home{% endtrans %}</a></p>
+            </div>
+        </div>
+	</div>
+</article>
 {% endblock %}

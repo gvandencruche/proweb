@@ -233,6 +233,27 @@
         <source>Follow me</source>
         <target>Suivez-moi</target>
       </trans-unit>    
+      <trans-unit id="58" resname="Enter your email address and we we will send you a link to reset your password.">
+        <source>Enter your email address and we we will send you a link to reset your password.</source>
+        <target>Entrez votre adresse e-mail et nous vous enverrons un lien pour réinitialiser votre mot de passe.</target>
+      </trans-unit>
+      <trans-unit id="59" resname="Password Reset Email Sent">
+        <source>Password Reset Email Sent</source>
+        <target>Email de réinitialisation du mot de passe envoyé</target>
+      </trans-unit>
+      <trans-unit id="60" resname="An email has been sent that contains a link that you can click to reset your password.">
+        <source>An email has been sent that contains a link that you can click to reset your password.</source>
+        <target>Un e-mail a été envoyé contenant un lien sur lequel vous pouvez cliquer pour réinitialiser votre mot de passe.</target>
+      </trans-unit>
+      <trans-unit id="61" resname="If you don't receive an email please check your spam folder or">
+        <source>If you don't receive an email please check your spam folder or</source>
+        <target>Si vous ne recevez pas d'e-mail, veuillez vérifier votre dossier spam ou</target>
+      </trans-unit>
+       <trans-unit id="62" resname="To reset your password, please visit the following link">
+        <source>To reset your password, please visit the following link</source>
+        <target>Pour réinitialiser votre mot de passe, veuillez visiter le lien suivant</target>
+      </trans-unit>
+      
     </body>
   </file>
 </xliff>

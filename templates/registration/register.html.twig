@@ -5,7 +5,6 @@
 {% block googleMap %}{% endblock %}
 {% block sidebar %}{% endblock %}
 
-
 {% block body %}
  <article class="col-xs-12 maincontent">
     <header class="page-header">
@@ -37,9 +36,11 @@
                         {{ form_row(registrationForm.password.second, {'attr': {'placeholder': 'Repeat Password'}}) }}
                     </div>
                 </div>
+                <hr>
+
                 <div class="row">
                     <div class="col-lg-12 text-right">
-                        <button class="btn btn-action" type="submit">Register</button>
+                        <button class="btn btn-action" type="submit">{% trans %}Register{% endtrans %}</button>
                     </div>
                 </div>
                 {{ form_end(registrationForm) }}
