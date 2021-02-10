@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}TypeMedias{% endblock %}
+
+{% block body %}
+    <h1>TypeMedias</h1>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ type_media.id }}</td>
+            </tr>
+            <tr>
+                <th>Title</th>
+                <td>{{ type_media.title }}</td>
+            </tr>
+            <tr>
+                <th>Created_at</th>
+                <td>{{ type_media.createdAt ? type_media.createdAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Update_at</th>
+                <td>{{ type_media.updateAt ? type_media.updateAt|date('Y-m-d H:i:s') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Active</th>
+                <td>{{ type_media.active ? 'Yes' : 'No' }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('type_medias_index') }}">back to list</a>
+
+    <a href="{{ path('type_medias_edit', {'id': type_media.id}) }}">edit</a>
+
+    {{ include('admin/type_medias/_delete_form.html.twig') }}
+{% endblock %}

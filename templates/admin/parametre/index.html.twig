@@ -1,0 +1,47 @@
+{% extends 'base_contact.html.twig' %}
+{% block title %}Proweb Artois : {% trans %}Site parameters{% endtrans %}{% endblock %}
+{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block googleMap %}{% endblock %}
+{% block sidebar %}{% endblock %}
+
+{% block body %}
+ <article class="col-xs-12 maincontent">
+
+    <h1>{% trans %}Site parameters{% endtrans %}</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Titre</th>
+                <th>Header</th>
+                <th>Accroche</th>
+                <th>Footer</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for parametre in parametres %}
+            <tr>
+                <td>{{ parametre.id }}</td>
+                <td>{{ parametre.titre }}</td>
+                <td>{{ parametre.header }}</td>
+                <td>{{ parametre.accroche }}</td>
+                <td>{{ parametre.footer }}</td>
+                <td>
+                    <a href="{{ path('parametre_show', {'id': parametre.id}) }}">show</a>
+                    <a href="{{ path('parametre_edit', {'id': parametre.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('parametre_new') }}">Create new</a>
+</article>    
+{% endblock %}

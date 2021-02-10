@@ -1,0 +1,83 @@
+<footer id="footer">
+		<div class="footer1">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-3 widget">
+						<h3 class="widget-title">{% trans %}Contact{% endtrans %}</h3>
+						<div class="widget-body">
+							<p>{{parametre.telephone}}<br>
+								<a href="mailto:#">{{parametre.email}}</a><br>
+								<br>
+								{{ parametre.adresse | raw }}
+							</p>	
+						</div>
+					</div>
+
+					<div class="col-md-3 widget">
+						<h3 class="widget-title">{% trans %}Follow me{% endtrans %}</h3>
+						<div class="widget-body">
+							<p class="follow-me-icons clearfix">
+							{% if parametre.footerLinkedin is not null %}
+								<a href="{{parametre.footerLinkedin}}" target="_blank"><i class="fa fa-linkedin fa-2"></i></a>
+							{% endif %}
+							{% if parametre.footerTwitter is not null %}
+								<a href=""><i class="fa fa-twitter fa-2"></i></a>
+							{% endif %}
+							{% if parametre.footerDribbble is not null %}
+								<a href=""><i class="fa fa-dribbble fa-2"></i></a>
+							{% endif %}
+							{% if parametre.footerGithub is not null %}
+								<a href=""><i class="fa fa-github fa-2"></i></a>
+							{% endif %}
+							{% if parametre.footerFacebook is not null %}
+								<a href=""><i class="fa fa-facebook fa-2"></i></a>
+							{% endif %}
+							</p>	
+						</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<h3 class="widget-title">{{ parametre.footerTitre }}</h3>
+						<div class="widget-body">
+							{{ parametre.footerText | raw }}
+						</div>
+					</div>
+
+				</div> <!-- /row of widgets -->
+			</div>
+		</div>
+
+		<div class="footer2">
+			<div class="container">
+				<div class="row">
+					
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="simplenav">
+								<a href="{{ path('app_home') }}">{% trans %}Home{% endtrans %}</a> | 
+								<a href="{{ path('app_home') }}">{% trans %}About{% endtrans %}</a> |
+								<a href="{{path('contact_new')}}">{% trans %}Contact{% endtrans %}</a> |
+								{% if is_granted('ROLE_USER') %}
+         		   				<a class="navbar-link" href="{{path('app_logout')}}">{% trans %}Sign out{% endtrans %}</a>
+								{% else %}
+								<a  href="{{path('app_login')}}">{% trans %}Sign in{% endtrans %}</a> |
+								<a  href="{{path('app_register')}}">{% trans %}Sign up{% endtrans %}</a>
+								{% endif %}
+								
+							</p>
+						</div>
+					</div>
+
+					<div class="col-md-6 widget">
+						<div class="widget-body">
+							<p class="text-right">
+								Copyright &copy; 2021, {{parametre.titre}}
+							</p>
+						</div>
+					</div>
+
+				</div> <!-- /row of widgets -->
+			</div>
+		</div>
+	</footer>	

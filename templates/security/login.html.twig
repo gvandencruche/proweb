@@ -1,42 +1,60 @@
-{% extends 'base.html.twig' %}
+{% extends 'base_contact.html.twig' %}
 
-{% block title %}Log in!{% endblock %}
+{% block title %}Proweb Artois : Identification{% endblock %}
+{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block googleMap %}{% endblock %}
+{% block sidebar %}{% endblock %}
 
 {% block body %}
-<form method="post">
-    {% if error %}
-        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
-    {% endif %}
+<article class="col-xs-12 maincontent">
+    <header class="page-header">
+        <h1 class="page-title">{% trans %}Login / Register{% endtrans %}</h1>
+    </header>
+				
+    <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <h3 class="thin text-center">{% trans %}Enter your email to log in or create an account.{% endtrans %}</h3>
+                <p class="text-center text-muted">{% trans %}To create your account, please click on the link :{% endtrans %} <a href="{{path('app_register')}}">{% trans %}Register{% endtrans %}</a>  </p>
+                <hr>
+                
+                <form method="post">
+                    {% if error %}
+                        <div class="alert alert-danger">{{ error.messageKey|trans(error.messageData, 'security') }}</div>
+                    {% endif %}
+                    {% if app.user %}
+                        <div class="mb-3">
+                            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                        </div>
+                    {% endif %}
+                    
+                    <div class="top-margin">
+                        <label for="inputEmail">{% trans %}Email{% endtrans %}</label>
+                        <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
+                    </div>
+                    <div class="top-margin">
+                        <label for="inputPassword">{% trans %}Password{% endtrans %}</label>
+                        <input type="password" name="password" id="inputPassword" class="form-control" required>
+                    </div>
+                    <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}" >
 
-    {% if app.user %}
-        <div class="mb-3">
-            You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+                    <hr>
+
+                    <div class="row">
+                        <div class="col-lg-8">
+                            <b><a href="{{path('app_forgot_password_request')}}">{% trans %}Forgot password ?{% endtrans %}</a></b>
+                        </div>
+                        <div class="col-lg-4 text-right">
+                            <button class="btn btn-action" type="submit">{% trans %}Login{% endtrans %}</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
         </div>
-    {% endif %}
+    </div>
+				
+</article>
 
-    <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
-    <label for="inputEmail">Email</label>
-    <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" required autofocus>
-    <label for="inputPassword">Password</label>
-    <input type="password" name="password" id="inputPassword" class="form-control" required>
 
-    <input type="hidden" name="_csrf_token"
-           value="{{ csrf_token('authenticate') }}"
-    >
-
-    {#
-        Uncomment this section and add a remember_me option below your firewall to activate remember me functionality.
-        See https://symfony.com/doc/current/security/remember_me.html
-
-        <div class="checkbox mb-3">
-            <label>
-                <input type="checkbox" name="_remember_me"> Remember me
-            </label>
-        </div>
-    #}
-
-    <button class="btn btn-lg btn-primary" type="submit">
-        Sign in
-    </button>
-</form>
 {% endblock %}
