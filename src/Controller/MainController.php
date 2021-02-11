@@ -2,25 +2,28 @@
 
 namespace App\Controller;
 
+use App\Notification\VisiteNotification;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Psr\Log\LoggerInterface;
 
 
 use App\Repository\ParametreRepository;
 use App\Repository\ReferenceRepository;
+
 
 class MainController extends AbstractController
 {
     /**
      * @Route("/", name="app_home")
      */
-    public function index(ParametreRepository $parametreRepository, ReferenceRepository $referenceRepository): Response
+    public function index(ParametreRepository $parametreRepository, ReferenceRepository $referenceRepository, VisiteNotification $logger): Response
     {
         if($this->getParameter('app_maintenance')){
             return $this->redirectToRoute('contact_new');
         }
-       
+        $logger->visite('accueil');
         return $this->render('main/index.html.twig', [
             'parametre' => $parametreRepository->findSite($_SERVER['APP_SITE']), 
             'references' => $referenceRepository->findAll(), 

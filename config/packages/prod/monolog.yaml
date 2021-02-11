@@ -1,5 +1,17 @@
 monolog:
     handlers:
+        security:
+            # log all messages (since debug is the lowest level)
+            level:    debug
+            type:     stream
+            path:     '%kernel.logs_dir%/security.log'
+            channels: [security]
+        visite:
+            # log all messages (since debug is the lowest level)
+            level:    debug
+            type:     stream
+            path:     '%kernel.logs_dir%/visite.log'
+            channels: [visite]
         main:
             type: fingers_crossed
             action_level: error

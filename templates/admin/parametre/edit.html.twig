@@ -10,10 +10,9 @@
 
     <h1>{% trans %}Edit Parametre{% endtrans %}</h1>
 
-    {{ include('admin/parametre/_form.html.twig', {'button_label': 'Update'}) }}
+    {{ include('admin/parametre/_form.html.twig') }}
     Logo <img src="{{ asset('/uploads/images/' ~ parametre.logo) }}" alt="{{ parametre.logo }}" width="150" >
-    <a href="{{ path('parametre_index') }}">{% trans %}back to list{% endtrans %}</a>
-
+    
     {{ include('admin/parametre/_delete_form.html.twig') }}
 
     <a href="{{ path('parametre_index') }}">{% trans %}back to list{% endtrans %}</a>

@@ -1,0 +1,18 @@
+{% extends 'base_contact.html.twig' %}
+{% block title %}Proweb Artois : {% trans %}Edit prospect{% endtrans %}{% endblock %}
+{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block googleMap %}{% endblock %}
+{% block sidebar %}{% endblock %}
+
+{% block body %}
+<article class="col-xs-12 maincontent">
+
+    <h1>{% trans %}Edit prospect{% endtrans %}</h1>
+
+    {{ include('admin/prospect/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('prospect_index') }}">{% trans %}back to list{% endtrans %}</a>
+
+    {{ include('admin/prospect/_delete_form.html.twig') }}
+{% endblock %}
