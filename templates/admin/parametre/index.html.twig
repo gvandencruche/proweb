@@ -14,11 +14,11 @@
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Titre</th>
-                <th>Header</th>
-                <th>Accroche</th>
-                <th>Footer</th>
-                <th>actions</th>
+                <th>{% trans %}Titre{% endtrans %}</th>
+                <th>{% trans %}Header{% endtrans %}</th>
+                <th>{% trans %}Accroche{% endtrans %}</th>
+                <th>{% trans %}Footer{% endtrans %}</th>
+                <th>{% trans %}actions{% endtrans %}</th>
             </tr>
         </thead>
         <tbody>
@@ -30,18 +30,17 @@
                 <td>{{ parametre.accroche }}</td>
                 <td>{{ parametre.footer }}</td>
                 <td>
-                    <a href="{{ path('parametre_show', {'id': parametre.id}) }}">show</a>
-                    <a href="{{ path('parametre_edit', {'id': parametre.id}) }}">edit</a>
+                    <a href="{{ path('parametre_edit', {'id': parametre.id}) }}">{% trans %}edit{% endtrans %}</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="6">no records found</td>
+                <td colspan="6">{% trans %}no records found{% endtrans %}</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('parametre_new') }}">Create new</a>
+    <a href="{{ path('parametre_new') }}">{% trans %}Create new{% endtrans %}</a>
 </article>    
 {% endblock %}

@@ -18,18 +18,9 @@ use DateTime;
 class ContactController extends AbstractController
 {
     
+   
 
-    /**
-     * @Route("/index", name="contact_index", methods={"GET"})
-     */
-    public function index(ContactRepository $contactRepository, ParametreRepository $parametreRepository): Response
-    {
-        return $this->render('contact/index.html.twig', [
-            'contacts' => $contactRepository->findAll(),
-            'parametre' => $parametreRepository->findSite($_SERVER['APP_SITE']),
-        ]);
-    }
-
+    
     /**
      * @Route("/prise-de-contact", name="contact_new", methods={"GET","POST"})
      */
@@ -60,49 +51,5 @@ class ContactController extends AbstractController
         ]);
     }
 
-     /**
-     * @Route("/showemail", name="contact_show_email", methods={"GET"})
-     */
-    public function showemail(ContactRepository $contactRepository): Response
-    {
-        $contact=$contactRepository->findLast();
-       
-        return $this->render('mail/contact_email.html.twig', [
-            'contact' => $contact[0],
-        ]);
-    }
     
-    /**
-     * @Route("/{id}/edit", name="contact_edit", methods={"GET","POST"})
-     */
-    public function edit(Request $request, Contact $contact): Response
-    {
-        $form = $this->createForm(ContactType::class, $contact);
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
-
-            return $this->redirectToRoute('contact_index');
-        }
-
-        return $this->render('contact/edit.html.twig', [
-            'contact' => $contact,
-            'form' => $form->createView(),
-        ]);
-    }
-
-    /**
-     * @Route("/{id}", name="contact_delete", methods={"DELETE"})
-     */
-    public function delete(Request $request, Contact $contact): Response
-    {
-        if ($this->isCsrfTokenValid('delete'.$contact->getId(), $request->request->get('_token'))) {
-            $entityManager = $this->getDoctrine()->getManager();
-            $entityManager->remove($contact);
-            $entityManager->flush();
-        }
-
-        return $this->redirectToRoute('contact_index');
-    }
 }
