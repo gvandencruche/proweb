@@ -21,11 +21,22 @@ class VisiteNotification {
     public function visite()
     {
         $uri = $_SERVER['REQUEST_URI'];
-        $ip = $_SERVER['REMOTE_ADDR'];
+        $ip = $this->getIp();
         $date = date('Y-m-d H:i:s');
         $message = $date." - ".$ip." - ".$uri;
         $this->logger->info($message);
     }
+    private function getIp(){
+        if(!empty($_SERVER['HTTP_CLIENT_IP'])){
+          $ip = $_SERVER['HTTP_CLIENT_IP'];
+        }elseif(!empty($_SERVER['HTTP_X_FORWARDED_FOR'])){
+          $ip = $_SERVER['HTTP_X_FORWARDED_FOR'];
+        }else{
+          $ip = $_SERVER['REMOTE_ADDR'];
+        }
+        return $ip;
+      }
+    
 }
 
 ?>
