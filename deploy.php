@@ -68,6 +68,10 @@ task('deploy:migrations', function () {
     run('{{bin/php}} {{bin/console}} doctrine:schema:update --force');
 })->desc('Migration Base de donnée');
 
+
+
+
+
 task('deploy', [
     'deploy:info',
     'deploy:prepare',
