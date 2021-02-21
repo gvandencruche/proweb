@@ -1,0 +1,17 @@
+{% extends 'base_contact.html.twig' %}
+{% block title %}Proweb Artois : {% trans %}Site parameters{% endtrans %}{% endblock %}
+{% block navbar %}{% include('common/navbar.html.twig') %}{% endblock %}
+{% block breadcrumb %}{% endblock %}
+{% block googleMap %}{% endblock %}
+{% block sidebar %}{% endblock %}
+
+{% block body %}
+<article class="col-xs-12 maincontent">
+
+    <h1>{% trans %}Create new Parametre{% endtrans %}</h1>
+
+    {{ include('admin/rubrique/_form.html.twig') }}
+
+    <a href="{{ path('parametre_index') }}">{% trans %}back to list{% endtrans %}</a>
+</article>
+{% endblock %}
